@@ -1,0 +1,566 @@
+{
+  "meta": {
+    "title": "Elastic Map",
+    "version": "0.1.0",
+    "asOf": "2026-07-22",
+    "canonicalOntology": "ontology/elastic-map.ttl",
+    "nodeCount": 23,
+    "edgeCount": 47
+  },
+  "nodes": [
+    {
+      "id": "ApacheDruid",
+      "label": "Apache Druid",
+      "kind": "analytics",
+      "summary": "대규모 데이터의 빠른 slice-and-dice OLAP 질의를 위한 실시간 분석 데이터베이스",
+      "sourceUrl": "https://druid.apache.org/docs/latest/design/",
+      "types": [
+        "AnalyticalDatabase",
+        "Technology"
+      ]
+    },
+    {
+      "id": "ClickHouse",
+      "label": "ClickHouse",
+      "kind": "analytics",
+      "summary": "OLAP을 위한 고성능 컬럼 지향 SQL 데이터베이스 관리 시스템",
+      "sourceUrl": "https://clickhouse.com/docs/intro",
+      "types": [
+        "AnalyticalDatabase",
+        "Technology"
+      ]
+    },
+    {
+      "id": "Lakehouse",
+      "label": "Lakehouse",
+      "kind": "architecture",
+      "summary": "데이터 레이크의 확장성과 데이터 웨어하우스의 관리·분석 기능을 결합하는 아키텍처",
+      "sourceUrl": "https://docs.databricks.com/aws/en/lakehouse-architecture/reference",
+      "types": [
+        "ArchitecturePattern"
+      ]
+    },
+    {
+      "id": "DocumentModel",
+      "label": "문서 모델",
+      "kind": "architecture",
+      "summary": "중첩 필드를 포함한 문서 단위로 데이터를 표현하는 모델",
+      "sourceUrl": "https://www.mongodb.com/docs/manual/core/document/",
+      "types": [
+        "ArchitecturePattern"
+      ]
+    },
+    {
+      "id": "InvertedIndex",
+      "label": "역색인",
+      "kind": "architecture",
+      "summary": "용어에서 문서로의 매핑을 구성해 전문 검색을 빠르게 수행하는 색인 구조",
+      "sourceUrl": "https://www.elastic.co/docs/manage-data/data-store/index-basics",
+      "types": [
+        "ArchitecturePattern"
+      ]
+    },
+    {
+      "id": "ColumnOriented",
+      "label": "컬럼 지향 저장",
+      "kind": "architecture",
+      "summary": "열 단위 저장과 압축을 통해 대규모 분석 질의에 유리한 저장 방식",
+      "sourceUrl": "https://clickhouse.com/docs/intro",
+      "types": [
+        "ArchitecturePattern"
+      ]
+    },
+    {
+      "id": "RowOriented",
+      "label": "행 지향 저장",
+      "kind": "architecture",
+      "summary": "한 레코드의 여러 속성을 함께 저장해 운영 트랜잭션에 유리한 저장 방식",
+      "sourceUrl": "https://www.postgresql.org/docs/current/storage-page-layout.html",
+      "types": [
+        "ArchitecturePattern"
+      ]
+    },
+    {
+      "id": "MongoDB",
+      "label": "MongoDB",
+      "kind": "database",
+      "summary": "BSON 문서를 저장하는 범용 문서 데이터베이스",
+      "sourceUrl": "https://www.mongodb.com/docs/manual/core/document/",
+      "types": [
+        "OperationalDatabase",
+        "Technology"
+      ]
+    },
+    {
+      "id": "PostgreSQL",
+      "label": "PostgreSQL",
+      "kind": "database",
+      "summary": "SQL을 사용하고 확장하는 오픈소스 객체 관계형 데이터베이스 시스템",
+      "sourceUrl": "https://www.postgresql.org/about/",
+      "types": [
+        "OperationalDatabase",
+        "Technology"
+      ]
+    },
+    {
+      "id": "Databricks",
+      "label": "Databricks",
+      "kind": "platform",
+      "summary": "레이크하우스 아키텍처를 중심으로 데이터 엔지니어링, 분석, AI를 통합하는 플랫폼",
+      "sourceUrl": "https://docs.databricks.com/aws/en/lakehouse-architecture/reference",
+      "types": [
+        "DataAIPlatform",
+        "Technology"
+      ]
+    },
+    {
+      "id": "SystemOfAnalytics",
+      "label": "System of Analytics",
+      "kind": "role",
+      "summary": "데이터 집계와 분석 질의를 제공하는 시스템 역할",
+      "sourceUrl": "https://aws.amazon.com/compare/the-difference-between-olap-and-oltp/",
+      "types": [
+        "SystemRole"
+      ]
+    },
+    {
+      "id": "SystemOfRecord",
+      "label": "System of Record",
+      "kind": "role",
+      "summary": "업무 데이터의 권위 있는 원본을 보유하는 시스템 역할",
+      "sourceUrl": "https://martinfowler.com/bliki/SystemOfRecord.html",
+      "types": [
+        "SystemRole"
+      ]
+    },
+    {
+      "id": "SystemOfSearch",
+      "label": "System of Search",
+      "kind": "role",
+      "summary": "원천 데이터를 검색·탐색하기 위한 파생 색인 및 접근 계층 역할",
+      "sourceUrl": "https://www.elastic.co/docs/get-started",
+      "types": [
+        "SystemRole"
+      ]
+    },
+    {
+      "id": "Elasticsearch",
+      "label": "Elasticsearch",
+      "kind": "search",
+      "summary": "분산 검색·분석 엔진. 검색, 로그·이벤트 분석, 벡터 검색의 기반으로 사용된다.",
+      "sourceUrl": "https://www.elastic.co/docs/get-started",
+      "types": [
+        "SearchAnalyticsEngine",
+        "Technology"
+      ]
+    },
+    {
+      "id": "Datadog",
+      "label": "Datadog",
+      "kind": "solution",
+      "summary": "인프라, 애플리케이션, 로그, 사용자 경험을 통합 모니터링하는 SaaS 관측성 플랫폼",
+      "sourceUrl": "https://www.datadoghq.com/product/",
+      "types": [
+        "ObservabilitySecurityPlatform",
+        "Technology"
+      ]
+    },
+    {
+      "id": "Observability",
+      "label": "Observability",
+      "kind": "solution",
+      "summary": "로그·메트릭·트레이스 등 텔레메트리를 통해 시스템 상태를 이해하는 영역",
+      "sourceUrl": "https://opentelemetry.io/docs/concepts/observability-primer/",
+      "types": [
+        "Workload"
+      ]
+    },
+    {
+      "id": "SIEM",
+      "label": "SIEM",
+      "kind": "solution",
+      "summary": "보안 이벤트를 수집·상관분석하여 위협 탐지와 조사를 지원하는 영역",
+      "sourceUrl": "https://www.elastic.co/docs/solutions/security",
+      "types": [
+        "Workload"
+      ]
+    },
+    {
+      "id": "Splunk",
+      "label": "Splunk",
+      "kind": "solution",
+      "summary": "보안과 관측성 영역에서 데이터를 수집·분석·운영하는 제품군",
+      "sourceUrl": "https://www.splunk.com/en_us/products.html",
+      "types": [
+        "ObservabilitySecurityPlatform",
+        "Technology"
+      ]
+    },
+    {
+      "id": "OLAP",
+      "label": "OLAP",
+      "kind": "workload",
+      "summary": "대량 데이터를 다차원으로 집계·분석하는 처리 방식",
+      "sourceUrl": "https://aws.amazon.com/compare/the-difference-between-olap-and-oltp/",
+      "types": [
+        "Workload"
+      ]
+    },
+    {
+      "id": "OLTP",
+      "label": "OLTP",
+      "kind": "workload",
+      "summary": "짧고 빈번한 트랜잭션과 운영 데이터의 생성·갱신에 초점을 둔 처리 방식",
+      "sourceUrl": "https://aws.amazon.com/compare/the-difference-between-olap-and-oltp/",
+      "types": [
+        "Workload"
+      ]
+    },
+    {
+      "id": "LogAnalytics",
+      "label": "로그 분석",
+      "kind": "workload",
+      "summary": "로그와 이벤트를 수집·탐색·집계하여 운영 상태와 사건을 분석하는 워크로드",
+      "sourceUrl": "https://www.elastic.co/docs/solutions/observability/logs",
+      "types": [
+        "Workload"
+      ]
+    },
+    {
+      "id": "RealtimeAnalytics",
+      "label": "실시간 분석",
+      "kind": "workload",
+      "summary": "새 데이터가 유입된 직후 낮은 지연으로 질의하고 집계하는 분석 워크로드",
+      "sourceUrl": "https://druid.apache.org/docs/latest/design/",
+      "types": [
+        "Workload"
+      ]
+    },
+    {
+      "id": "FullTextSearch",
+      "label": "전문 검색",
+      "kind": "workload",
+      "summary": "텍스트를 분석·색인하여 관련 문서를 검색하는 워크로드",
+      "sourceUrl": "https://www.elastic.co/docs/solutions/search",
+      "types": [
+        "Workload"
+      ]
+    }
+  ],
+  "edges": [
+    {
+      "source": "ApacheDruid",
+      "target": "ColumnOriented",
+      "type": "implements",
+      "label": "구현"
+    },
+    {
+      "source": "ApacheDruid",
+      "target": "OLAP",
+      "type": "optimized-for",
+      "label": "최적화"
+    },
+    {
+      "source": "ApacheDruid",
+      "target": "RealtimeAnalytics",
+      "type": "optimized-for",
+      "label": "최적화"
+    },
+    {
+      "source": "ApacheDruid",
+      "target": "SystemOfAnalytics",
+      "type": "role",
+      "label": "주 역할"
+    },
+    {
+      "source": "ClickHouse",
+      "target": "ColumnOriented",
+      "type": "implements",
+      "label": "구현"
+    },
+    {
+      "source": "ClickHouse",
+      "target": "OLAP",
+      "type": "optimized-for",
+      "label": "최적화"
+    },
+    {
+      "source": "ClickHouse",
+      "target": "RealtimeAnalytics",
+      "type": "optimized-for",
+      "label": "최적화"
+    },
+    {
+      "source": "ClickHouse",
+      "target": "SystemOfAnalytics",
+      "type": "role",
+      "label": "주 역할"
+    },
+    {
+      "source": "Databricks",
+      "target": "Elasticsearch",
+      "type": "complements",
+      "label": "보완"
+    },
+    {
+      "source": "Databricks",
+      "target": "Lakehouse",
+      "type": "implements",
+      "label": "구현"
+    },
+    {
+      "source": "Databricks",
+      "target": "OLAP",
+      "type": "supports",
+      "label": "지원"
+    },
+    {
+      "source": "Databricks",
+      "target": "SystemOfAnalytics",
+      "type": "role",
+      "label": "주 역할"
+    },
+    {
+      "source": "Datadog",
+      "target": "LogAnalytics",
+      "type": "optimized-for",
+      "label": "최적화"
+    },
+    {
+      "source": "Datadog",
+      "target": "Observability",
+      "type": "optimized-for",
+      "label": "최적화"
+    },
+    {
+      "source": "Datadog",
+      "target": "SystemOfAnalytics",
+      "type": "role",
+      "label": "주 역할"
+    },
+    {
+      "source": "Elasticsearch",
+      "target": "ApacheDruid",
+      "type": "overlaps",
+      "label": "overlaps",
+      "context": "RealtimeAnalytics",
+      "assessment": "실시간 이벤트 분석에서 겹치지만 Druid는 시간 기반 다차원 OLAP, Elasticsearch는 검색·탐색에 상대적 중심이 있다.",
+      "asOf": "2026-07-22",
+      "claimId": "ClaimElasticDruid"
+    },
+    {
+      "source": "Elasticsearch",
+      "target": "ClickHouse",
+      "type": "overlaps",
+      "label": "overlaps",
+      "context": "LogAnalytics",
+      "assessment": "로그·이벤트 분석에서는 중첩되며 Elasticsearch는 검색, ClickHouse는 컬럼형 집계에 상대적 중심이 있다.",
+      "asOf": "2026-07-22",
+      "claimId": "ClaimElasticClickHouse"
+    },
+    {
+      "source": "Elasticsearch",
+      "target": "Databricks",
+      "type": "complements",
+      "label": "보완"
+    },
+    {
+      "source": "Elasticsearch",
+      "target": "Databricks",
+      "type": "complements",
+      "label": "complements",
+      "context": "Lakehouse",
+      "assessment": "레이크하우스의 장기 데이터·AI 처리와 운영 시점의 검색·탐색 계층으로 역할을 분리할 수 있다.",
+      "asOf": "2026-07-22",
+      "claimId": "ClaimElasticDatabricks"
+    },
+    {
+      "source": "Elasticsearch",
+      "target": "Datadog",
+      "type": "competes",
+      "label": "competes",
+      "context": "Observability",
+      "assessment": "관측성 시장에서 경쟁하며 데이터 통제·배포 모델과 통합 SaaS 경험이 주요 비교축이다.",
+      "asOf": "2026-07-22",
+      "claimId": "ClaimElasticDatadog"
+    },
+    {
+      "source": "Elasticsearch",
+      "target": "DocumentModel",
+      "type": "implements",
+      "label": "구현"
+    },
+    {
+      "source": "Elasticsearch",
+      "target": "FullTextSearch",
+      "type": "optimized-for",
+      "label": "최적화"
+    },
+    {
+      "source": "Elasticsearch",
+      "target": "InvertedIndex",
+      "type": "implements",
+      "label": "구현"
+    },
+    {
+      "source": "Elasticsearch",
+      "target": "LogAnalytics",
+      "type": "optimized-for",
+      "label": "최적화"
+    },
+    {
+      "source": "Elasticsearch",
+      "target": "MongoDB",
+      "type": "complements",
+      "label": "보완"
+    },
+    {
+      "source": "Elasticsearch",
+      "target": "MongoDB",
+      "type": "overlaps-and-complements",
+      "label": "overlaps-and-complements",
+      "context": "DocumentModel",
+      "assessment": "문서 모델은 겹치지만 운영 원본 저장과 전문 검색이라는 주 역할은 다르며 함께 사용할 수도 있다.",
+      "asOf": "2026-07-22",
+      "claimId": "ClaimElasticMongo"
+    },
+    {
+      "source": "Elasticsearch",
+      "target": "OLAP",
+      "type": "supports",
+      "label": "지원"
+    },
+    {
+      "source": "Elasticsearch",
+      "target": "PostgreSQL",
+      "type": "complements",
+      "label": "보완"
+    },
+    {
+      "source": "Elasticsearch",
+      "target": "PostgreSQL",
+      "type": "complements",
+      "label": "complements",
+      "context": "SystemOfSearch",
+      "assessment": "PostgreSQL을 원본 시스템으로 두고 Elasticsearch를 검색용 파생 인덱스로 사용하는 보완 구성이 가능하다.",
+      "asOf": "2026-07-22",
+      "claimId": "ClaimElasticPostgres"
+    },
+    {
+      "source": "Elasticsearch",
+      "target": "RealtimeAnalytics",
+      "type": "supports",
+      "label": "지원"
+    },
+    {
+      "source": "Elasticsearch",
+      "target": "Splunk",
+      "type": "competes",
+      "label": "competes",
+      "context": "SIEM",
+      "assessment": "SIEM과 로그 분석 솔루션 시장에서 경쟁한다. 엔진 단위보다 솔루션·운영 모델 단위 비교가 적절하다.",
+      "asOf": "2026-07-22",
+      "claimId": "ClaimElasticSplunk"
+    },
+    {
+      "source": "Elasticsearch",
+      "target": "SystemOfAnalytics",
+      "type": "role",
+      "label": "주 역할"
+    },
+    {
+      "source": "Elasticsearch",
+      "target": "SystemOfSearch",
+      "type": "role",
+      "label": "주 역할"
+    },
+    {
+      "source": "MongoDB",
+      "target": "DocumentModel",
+      "type": "implements",
+      "label": "구현"
+    },
+    {
+      "source": "MongoDB",
+      "target": "Elasticsearch",
+      "type": "complements",
+      "label": "보완"
+    },
+    {
+      "source": "MongoDB",
+      "target": "OLTP",
+      "type": "optimized-for",
+      "label": "최적화"
+    },
+    {
+      "source": "MongoDB",
+      "target": "SystemOfRecord",
+      "type": "role",
+      "label": "주 역할"
+    },
+    {
+      "source": "PostgreSQL",
+      "target": "Elasticsearch",
+      "type": "complements",
+      "label": "보완"
+    },
+    {
+      "source": "PostgreSQL",
+      "target": "MongoDB",
+      "type": "alternative",
+      "label": "alternative",
+      "context": "OLTP",
+      "assessment": "운영 애플리케이션의 원본 저장소 선택에서 관계형 모델과 문서 모델 대안으로 비교된다.",
+      "asOf": "2026-07-22",
+      "claimId": "ClaimPostgresMongo"
+    },
+    {
+      "source": "PostgreSQL",
+      "target": "OLAP",
+      "type": "supports",
+      "label": "지원"
+    },
+    {
+      "source": "PostgreSQL",
+      "target": "OLTP",
+      "type": "optimized-for",
+      "label": "최적화"
+    },
+    {
+      "source": "PostgreSQL",
+      "target": "RowOriented",
+      "type": "implements",
+      "label": "구현"
+    },
+    {
+      "source": "PostgreSQL",
+      "target": "SystemOfRecord",
+      "type": "role",
+      "label": "주 역할"
+    },
+    {
+      "source": "Splunk",
+      "target": "LogAnalytics",
+      "type": "optimized-for",
+      "label": "최적화"
+    },
+    {
+      "source": "Splunk",
+      "target": "Observability",
+      "type": "optimized-for",
+      "label": "최적화"
+    },
+    {
+      "source": "Splunk",
+      "target": "SIEM",
+      "type": "optimized-for",
+      "label": "최적화"
+    },
+    {
+      "source": "Splunk",
+      "target": "SystemOfAnalytics",
+      "type": "role",
+      "label": "주 역할"
+    }
+  ]
+}

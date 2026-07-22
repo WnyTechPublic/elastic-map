@@ -1,0 +1,186 @@
+@prefix wny: <https://pub.wnytech.co.kr/elastic-map/ontology#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<https://pub.wnytech.co.kr/elastic-map/ontology>
+    a owl:Ontology ;
+    rdfs:label "Elastic Map 온톨로지"@ko ;
+    rdfs:comment "Elastic을 중심으로 데이터, 검색, 분석, 관측성, 보안 기술의 관계를 설명하는 확장형 기술 온톨로지"@ko ;
+    wny:version "0.1.0" ;
+    wny:asOf "2026-07-22"^^xsd:date .
+
+# Classes
+wny:Concept a owl:Class ; rdfs:label "개념"@ko .
+wny:Technology a owl:Class ; rdfs:subClassOf wny:Concept ; rdfs:label "기술·제품"@ko .
+wny:Workload a owl:Class ; rdfs:subClassOf wny:Concept ; rdfs:label "워크로드"@ko .
+wny:ArchitecturePattern a owl:Class ; rdfs:subClassOf wny:Concept ; rdfs:label "아키텍처 패턴"@ko .
+wny:SystemRole a owl:Class ; rdfs:subClassOf wny:Concept ; rdfs:label "시스템 역할"@ko .
+wny:PositioningClaim a owl:Class ; rdfs:label "포지셔닝 주장"@ko .
+wny:SearchAnalyticsEngine a owl:Class ; rdfs:subClassOf wny:Technology ; rdfs:label "검색·분석 엔진"@ko .
+wny:OperationalDatabase a owl:Class ; rdfs:subClassOf wny:Technology ; rdfs:label "운영 데이터베이스"@ko .
+wny:AnalyticalDatabase a owl:Class ; rdfs:subClassOf wny:Technology ; rdfs:label "분석 데이터베이스"@ko .
+wny:DataAIPlatform a owl:Class ; rdfs:subClassOf wny:Technology ; rdfs:label "데이터·AI 플랫폼"@ko .
+wny:ObservabilitySecurityPlatform a owl:Class ; rdfs:subClassOf wny:Technology ; rdfs:label "관측성·보안 플랫폼"@ko .
+
+# Properties
+wny:nodeKind a owl:DatatypeProperty .
+wny:summary a owl:DatatypeProperty .
+wny:primarySource a owl:DatatypeProperty .
+wny:optimizedFor a owl:ObjectProperty .
+wny:supportsWorkload a owl:ObjectProperty .
+wny:implementsPattern a owl:ObjectProperty .
+wny:typicalRole a owl:ObjectProperty .
+wny:commonlyComplements a owl:ObjectProperty .
+wny:subject a owl:ObjectProperty .
+wny:object a owl:ObjectProperty .
+wny:relationType a owl:DatatypeProperty .
+wny:context a owl:ObjectProperty .
+wny:assessment a owl:DatatypeProperty .
+wny:asOf a owl:DatatypeProperty .
+wny:version a owl:DatatypeProperty .
+
+# Workloads
+wny:OLTP a wny:Workload ; rdfs:label "OLTP" ; wny:nodeKind "workload" ;
+    wny:summary "짧고 빈번한 트랜잭션과 운영 데이터의 생성·갱신에 초점을 둔 처리 방식"@ko ;
+    wny:primarySource "https://aws.amazon.com/compare/the-difference-between-olap-and-oltp/"^^xsd:anyURI .
+wny:OLAP a wny:Workload ; rdfs:label "OLAP" ; wny:nodeKind "workload" ;
+    wny:summary "대량 데이터를 다차원으로 집계·분석하는 처리 방식"@ko ;
+    wny:primarySource "https://aws.amazon.com/compare/the-difference-between-olap-and-oltp/"^^xsd:anyURI .
+wny:FullTextSearch a wny:Workload ; rdfs:label "전문 검색"@ko ; wny:nodeKind "workload" ;
+    wny:summary "텍스트를 분석·색인하여 관련 문서를 검색하는 워크로드"@ko ;
+    wny:primarySource "https://www.elastic.co/docs/solutions/search"^^xsd:anyURI .
+wny:LogAnalytics a wny:Workload ; rdfs:label "로그 분석"@ko ; wny:nodeKind "workload" ;
+    wny:summary "로그와 이벤트를 수집·탐색·집계하여 운영 상태와 사건을 분석하는 워크로드"@ko ;
+    wny:primarySource "https://www.elastic.co/docs/solutions/observability/logs"^^xsd:anyURI .
+wny:RealtimeAnalytics a wny:Workload ; rdfs:label "실시간 분석"@ko ; wny:nodeKind "workload" ;
+    wny:summary "새 데이터가 유입된 직후 낮은 지연으로 질의하고 집계하는 분석 워크로드"@ko ;
+    wny:primarySource "https://druid.apache.org/docs/latest/design/"^^xsd:anyURI .
+wny:Observability a wny:Workload ; rdfs:label "Observability" ; wny:nodeKind "solution" ;
+    wny:summary "로그·메트릭·트레이스 등 텔레메트리를 통해 시스템 상태를 이해하는 영역"@ko ;
+    wny:primarySource "https://opentelemetry.io/docs/concepts/observability-primer/"^^xsd:anyURI .
+wny:SIEM a wny:Workload ; rdfs:label "SIEM" ; wny:nodeKind "solution" ;
+    wny:summary "보안 이벤트를 수집·상관분석하여 위협 탐지와 조사를 지원하는 영역"@ko ;
+    wny:primarySource "https://www.elastic.co/docs/solutions/security"^^xsd:anyURI .
+
+# Architecture patterns and system roles
+wny:Lakehouse a wny:ArchitecturePattern ; rdfs:label "Lakehouse" ; wny:nodeKind "architecture" ;
+    wny:summary "데이터 레이크의 확장성과 데이터 웨어하우스의 관리·분석 기능을 결합하는 아키텍처"@ko ;
+    wny:primarySource "https://docs.databricks.com/aws/en/lakehouse-architecture/reference"^^xsd:anyURI .
+wny:InvertedIndex a wny:ArchitecturePattern ; rdfs:label "역색인"@ko ; wny:nodeKind "architecture" ;
+    wny:summary "용어에서 문서로의 매핑을 구성해 전문 검색을 빠르게 수행하는 색인 구조"@ko ;
+    wny:primarySource "https://www.elastic.co/docs/manage-data/data-store/index-basics"^^xsd:anyURI .
+wny:RowOriented a wny:ArchitecturePattern ; rdfs:label "행 지향 저장"@ko ; wny:nodeKind "architecture" ;
+    wny:summary "한 레코드의 여러 속성을 함께 저장해 운영 트랜잭션에 유리한 저장 방식"@ko ;
+    wny:primarySource "https://www.postgresql.org/docs/current/storage-page-layout.html"^^xsd:anyURI .
+wny:DocumentModel a wny:ArchitecturePattern ; rdfs:label "문서 모델"@ko ; wny:nodeKind "architecture" ;
+    wny:summary "중첩 필드를 포함한 문서 단위로 데이터를 표현하는 모델"@ko ;
+    wny:primarySource "https://www.mongodb.com/docs/manual/core/document/"^^xsd:anyURI .
+wny:ColumnOriented a wny:ArchitecturePattern ; rdfs:label "컬럼 지향 저장"@ko ; wny:nodeKind "architecture" ;
+    wny:summary "열 단위 저장과 압축을 통해 대규모 분석 질의에 유리한 저장 방식"@ko ;
+    wny:primarySource "https://clickhouse.com/docs/intro"^^xsd:anyURI .
+wny:SystemOfRecord a wny:SystemRole ; rdfs:label "System of Record" ; wny:nodeKind "role" ;
+    wny:summary "업무 데이터의 권위 있는 원본을 보유하는 시스템 역할"@ko ;
+    wny:primarySource "https://martinfowler.com/bliki/SystemOfRecord.html"^^xsd:anyURI .
+wny:SystemOfSearch a wny:SystemRole ; rdfs:label "System of Search" ; wny:nodeKind "role" ;
+    wny:summary "원천 데이터를 검색·탐색하기 위한 파생 색인 및 접근 계층 역할"@ko ;
+    wny:primarySource "https://www.elastic.co/docs/get-started"^^xsd:anyURI .
+wny:SystemOfAnalytics a wny:SystemRole ; rdfs:label "System of Analytics" ; wny:nodeKind "role" ;
+    wny:summary "데이터 집계와 분석 질의를 제공하는 시스템 역할"@ko ;
+    wny:primarySource "https://aws.amazon.com/compare/the-difference-between-olap-and-oltp/"^^xsd:anyURI .
+
+# Technologies and products
+wny:Elasticsearch a wny:Technology, wny:SearchAnalyticsEngine ; rdfs:label "Elasticsearch" ; wny:nodeKind "search" ;
+    wny:summary "분산 검색·분석 엔진. 검색, 로그·이벤트 분석, 벡터 검색의 기반으로 사용된다."@ko ;
+    wny:primarySource "https://www.elastic.co/docs/get-started"^^xsd:anyURI ;
+    wny:optimizedFor wny:FullTextSearch, wny:LogAnalytics ;
+    wny:supportsWorkload wny:RealtimeAnalytics, wny:OLAP ;
+    wny:implementsPattern wny:InvertedIndex, wny:DocumentModel ;
+    wny:typicalRole wny:SystemOfSearch, wny:SystemOfAnalytics ;
+    wny:commonlyComplements wny:PostgreSQL, wny:MongoDB, wny:Databricks .
+
+wny:PostgreSQL a wny:Technology, wny:OperationalDatabase ; rdfs:label "PostgreSQL" ; wny:nodeKind "database" ;
+    wny:summary "SQL을 사용하고 확장하는 오픈소스 객체 관계형 데이터베이스 시스템"@ko ;
+    wny:primarySource "https://www.postgresql.org/about/"^^xsd:anyURI ;
+    wny:optimizedFor wny:OLTP ; wny:supportsWorkload wny:OLAP ;
+    wny:implementsPattern wny:RowOriented ; wny:typicalRole wny:SystemOfRecord ;
+    wny:commonlyComplements wny:Elasticsearch .
+
+wny:MongoDB a wny:Technology, wny:OperationalDatabase ; rdfs:label "MongoDB" ; wny:nodeKind "database" ;
+    wny:summary "BSON 문서를 저장하는 범용 문서 데이터베이스"@ko ;
+    wny:primarySource "https://www.mongodb.com/docs/manual/core/document/"^^xsd:anyURI ;
+    wny:optimizedFor wny:OLTP ; wny:implementsPattern wny:DocumentModel ;
+    wny:typicalRole wny:SystemOfRecord ; wny:commonlyComplements wny:Elasticsearch .
+
+wny:ClickHouse a wny:Technology, wny:AnalyticalDatabase ; rdfs:label "ClickHouse" ; wny:nodeKind "analytics" ;
+    wny:summary "OLAP을 위한 고성능 컬럼 지향 SQL 데이터베이스 관리 시스템"@ko ;
+    wny:primarySource "https://clickhouse.com/docs/intro"^^xsd:anyURI ;
+    wny:optimizedFor wny:OLAP, wny:RealtimeAnalytics ;
+    wny:implementsPattern wny:ColumnOriented ; wny:typicalRole wny:SystemOfAnalytics .
+
+wny:ApacheDruid a wny:Technology, wny:AnalyticalDatabase ; rdfs:label "Apache Druid" ; wny:nodeKind "analytics" ;
+    wny:summary "대규모 데이터의 빠른 slice-and-dice OLAP 질의를 위한 실시간 분석 데이터베이스"@ko ;
+    wny:primarySource "https://druid.apache.org/docs/latest/design/"^^xsd:anyURI ;
+    wny:optimizedFor wny:RealtimeAnalytics, wny:OLAP ;
+    wny:implementsPattern wny:ColumnOriented ; wny:typicalRole wny:SystemOfAnalytics .
+
+wny:Databricks a wny:Technology, wny:DataAIPlatform ; rdfs:label "Databricks" ; wny:nodeKind "platform" ;
+    wny:summary "레이크하우스 아키텍처를 중심으로 데이터 엔지니어링, 분석, AI를 통합하는 플랫폼"@ko ;
+    wny:primarySource "https://docs.databricks.com/aws/en/lakehouse-architecture/reference"^^xsd:anyURI ;
+    wny:supportsWorkload wny:OLAP ; wny:implementsPattern wny:Lakehouse ;
+    wny:typicalRole wny:SystemOfAnalytics ; wny:commonlyComplements wny:Elasticsearch .
+
+wny:Splunk a wny:Technology, wny:ObservabilitySecurityPlatform ; rdfs:label "Splunk" ; wny:nodeKind "solution" ;
+    wny:summary "보안과 관측성 영역에서 데이터를 수집·분석·운영하는 제품군"@ko ;
+    wny:primarySource "https://www.splunk.com/en_us/products.html"^^xsd:anyURI ;
+    wny:optimizedFor wny:LogAnalytics, wny:Observability, wny:SIEM ;
+    wny:typicalRole wny:SystemOfAnalytics .
+
+wny:Datadog a wny:Technology, wny:ObservabilitySecurityPlatform ; rdfs:label "Datadog" ; wny:nodeKind "solution" ;
+    wny:summary "인프라, 애플리케이션, 로그, 사용자 경험을 통합 모니터링하는 SaaS 관측성 플랫폼"@ko ;
+    wny:primarySource "https://www.datadoghq.com/product/"^^xsd:anyURI ;
+    wny:optimizedFor wny:Observability, wny:LogAnalytics ;
+    wny:typicalRole wny:SystemOfAnalytics .
+
+# Contextual positioning claims — market relationships are not universal facts.
+wny:ClaimElasticPostgres a wny:PositioningClaim ;
+    wny:subject wny:Elasticsearch ; wny:object wny:PostgreSQL ;
+    wny:relationType "complements" ; wny:context wny:SystemOfSearch ;
+    wny:assessment "PostgreSQL을 원본 시스템으로 두고 Elasticsearch를 검색용 파생 인덱스로 사용하는 보완 구성이 가능하다."@ko ;
+    wny:asOf "2026-07-22"^^xsd:date .
+wny:ClaimElasticMongo a wny:PositioningClaim ;
+    wny:subject wny:Elasticsearch ; wny:object wny:MongoDB ;
+    wny:relationType "overlaps-and-complements" ; wny:context wny:DocumentModel ;
+    wny:assessment "문서 모델은 겹치지만 운영 원본 저장과 전문 검색이라는 주 역할은 다르며 함께 사용할 수도 있다."@ko ;
+    wny:asOf "2026-07-22"^^xsd:date .
+wny:ClaimElasticClickHouse a wny:PositioningClaim ;
+    wny:subject wny:Elasticsearch ; wny:object wny:ClickHouse ;
+    wny:relationType "overlaps" ; wny:context wny:LogAnalytics ;
+    wny:assessment "로그·이벤트 분석에서는 중첩되며 Elasticsearch는 검색, ClickHouse는 컬럼형 집계에 상대적 중심이 있다."@ko ;
+    wny:asOf "2026-07-22"^^xsd:date .
+wny:ClaimElasticDruid a wny:PositioningClaim ;
+    wny:subject wny:Elasticsearch ; wny:object wny:ApacheDruid ;
+    wny:relationType "overlaps" ; wny:context wny:RealtimeAnalytics ;
+    wny:assessment "실시간 이벤트 분석에서 겹치지만 Druid는 시간 기반 다차원 OLAP, Elasticsearch는 검색·탐색에 상대적 중심이 있다."@ko ;
+    wny:asOf "2026-07-22"^^xsd:date .
+wny:ClaimElasticDatabricks a wny:PositioningClaim ;
+    wny:subject wny:Elasticsearch ; wny:object wny:Databricks ;
+    wny:relationType "complements" ; wny:context wny:Lakehouse ;
+    wny:assessment "레이크하우스의 장기 데이터·AI 처리와 운영 시점의 검색·탐색 계층으로 역할을 분리할 수 있다."@ko ;
+    wny:asOf "2026-07-22"^^xsd:date .
+wny:ClaimElasticSplunk a wny:PositioningClaim ;
+    wny:subject wny:Elasticsearch ; wny:object wny:Splunk ;
+    wny:relationType "competes" ; wny:context wny:SIEM ;
+    wny:assessment "SIEM과 로그 분석 솔루션 시장에서 경쟁한다. 엔진 단위보다 솔루션·운영 모델 단위 비교가 적절하다."@ko ;
+    wny:asOf "2026-07-22"^^xsd:date .
+wny:ClaimElasticDatadog a wny:PositioningClaim ;
+    wny:subject wny:Elasticsearch ; wny:object wny:Datadog ;
+    wny:relationType "competes" ; wny:context wny:Observability ;
+    wny:assessment "관측성 시장에서 경쟁하며 데이터 통제·배포 모델과 통합 SaaS 경험이 주요 비교축이다."@ko ;
+    wny:asOf "2026-07-22"^^xsd:date .
+wny:ClaimPostgresMongo a wny:PositioningClaim ;
+    wny:subject wny:PostgreSQL ; wny:object wny:MongoDB ;
+    wny:relationType "alternative" ; wny:context wny:OLTP ;
+    wny:assessment "운영 애플리케이션의 원본 저장소 선택에서 관계형 모델과 문서 모델 대안으로 비교된다."@ko ;
+    wny:asOf "2026-07-22"^^xsd:date .
