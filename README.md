@@ -4,6 +4,8 @@
 
 [![Validate](https://github.com/WnyTechPublic/elastic-map/actions/workflows/validate.yml/badge.svg)](https://github.com/WnyTechPublic/elastic-map/actions/workflows/validate.yml)
 
+**Live:** https://pub.wnytech.co.kr/elastic-map/
+
 ![Elastic Map 초기 화면](docs/elastic-map-preview.png)
 
 ## 왜 Elastic Map인가
