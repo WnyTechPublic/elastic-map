@@ -32,25 +32,25 @@ function renderGraph(data) {
     wheelSensitivity: 0.18, minZoom: 0.35, maxZoom: 2.2,
     style: [
       { selector: "node", style: {
-        "background-color": "data(color)", "background-opacity": .88, width: 18, height: 18,
-        label: "data(label)", color: "#aeb5bf", "font-family": "Inter", "font-size": 9,
-        "font-weight": 500, "text-margin-y": 8, "text-valign": "bottom",
-        "text-background-color": "#0e1014", "text-background-opacity": .82,
-        "text-background-padding": 3, "text-background-shape": "roundrectangle",
-        "border-width": 4, "border-color": "data(color)", "border-opacity": .12,
+        "background-color": "data(color)", "background-opacity": .92, width: 22, height: 22,
+        label: "data(label)", color: "#34404d", "font-family": "Inter", "font-size": 11,
+        "font-weight": 600, "text-margin-y": 9, "text-valign": "bottom",
+        "text-background-color": "#ffffff", "text-background-opacity": .9,
+        "text-background-padding": 4, "text-background-shape": "roundrectangle",
+        "border-width": 5, "border-color": "data(color)", "border-opacity": .13,
         "transition-property": "opacity, width, height, border-width", "transition-duration": ".18s"
       }},
-      { selector: "node[id = 'Elasticsearch']", style: { width: 35, height: 35, "font-size": 11, color: "#f4f6f8", "border-width": 10, "border-opacity": .1 }},
+      { selector: "node[id = 'Elasticsearch']", style: { width: 42, height: 42, "font-size": 14, color: "#17202a", "border-width": 11, "border-opacity": .12 }},
       { selector: "edge", style: {
-        width: .8, "line-color": "#59616d", "target-arrow-color": "#59616d", "target-arrow-shape": "triangle",
-        "arrow-scale": .55, "curve-style": "bezier", opacity: .38
+        width: 1.1, "line-color": "#8f99a6", "target-arrow-color": "#8f99a6", "target-arrow-shape": "triangle",
+        "arrow-scale": .65, "curve-style": "bezier", opacity: .52
       }},
       { selector: "edge[group = 'complements']", style: { "line-color": "#00bfb3", "target-arrow-color": "#00bfb3", opacity: .48 }},
       { selector: "edge[group = 'market']", style: { "line-color": "#e766a5", "target-arrow-color": "#e766a5", "line-style": "dashed", opacity: .62 }},
-      { selector: ".faded", style: { opacity: .07 }},
+      { selector: ".faded", style: { opacity: .11 }},
       { selector: ".highlighted", style: { opacity: 1, "z-index": 8 }},
-      { selector: "node.highlighted", style: { width: 29, height: 29, "border-width": 9, color: "#fff" }},
-      { selector: ":selected", style: { "overlay-color": "#ffffff", "overlay-opacity": .08, "overlay-padding": 8 }}
+      { selector: "node.highlighted", style: { width: 33, height: 33, "border-width": 9, color: "#17202a" }},
+      { selector: ":selected", style: { "overlay-color": "#17202a", "overlay-opacity": .08, "overlay-padding": 8 }}
     ],
     layout: { name: "cose", animate: false, fit: true, padding: 55, nodeRepulsion: 9000, idealEdgeLength: 102, edgeElasticity: 80, gravity: .16, numIter: 1800 }
   });
